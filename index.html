@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="Stylesheet" href="H7TL.css" type="text/css"/>
+<title>Timeline</title>
+<script language="javascript" defer="false">
+//browser detection
+    var agt=navigator.userAgent.toLowerCase();
+    var is_major = parseInt(navigator.appVersion);
+    var is_minor = parseFloat(navigator.appVersion);
+
+    var is_nav  = ((agt.indexOf('mozilla')!=-1) && (agt.indexOf('spoofer')==-1)
+                && (agt.indexOf('compatible') == -1) && (agt.indexOf('opera')==-1)
+                && (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1));
+    var is_nav4 = (is_nav && (is_major == 4));
+    var is_nav6 = (is_nav && (is_major == 5));
+    var is_nav6up = (is_nav && (is_major >= 5));
+    var is_ie     = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1));
+</script>
+<script language="JavaScript">
+var offsetX = 0;
+var offsetY = 5;
+var opacity = 100;
+var toolTipSTYLE;
+
+function initToolTips(){
+  if(document.getElementById){
+          toolTipSTYLE = document.getElementById("toolTipLayer").style;
+  }
+  if(is_ie || is_nav6up)
+  {
+    toolTipSTYLE.visibility = "visible";
+    toolTipSTYLE.display = "none";
+    document.onmousemove = moveToMousePos;
+  }
+}
+function moveToMousePos(e)
+{
+  if(!is_ie){
+    x = e.pageX;
+    y = e.pageY;
+  }else{
+    x = event.x + document.body.scrollLeft;
+    y = event.y + document.body.scrollTop;
+  }
+  toolTipSTYLE.left = 190+'px';
+  toolTipSTYLE.top = y + offsetY+'px';
+  return true;
+}
+
+
+function toolTip(msg, fg, bg)
+{
+  if(toolTip.arguments.length < 1) // if no arguments are passed then hide the tootip
+  {
+    if(is_nav4)
+        toolTipSTYLE.visibility = "hidden";
+    else
+        toolTipSTYLE.display = "none";
+  }
+  else // show
+  {
+    if(!fg) fg = "#777777";
+    if(!bg) bg = "#ffffe5";
+    var content = '<table border="0" cellspacing="0" cellpadding="0" class="toolTip"><tr><td bgcolor="' + fg + '">' +
+                                  '<table border="0" cellspacing="1" cellpadding="0"<tr><td bgcolor="' + bg + '">'+
+                                  '<font face="sans-serif" color="' + fg + '" size="-2">' + msg +
+                                  '</font></td></tr></table>'+
+                                  '</td></tr></table>';
+   if(is_nav4)
+    {
+      toolTipSTYLE.document.write(content);
+      toolTipSTYLE.document.close();
+      toolTipSTYLE.visibility = "visible";
+    }
+
+    else if(is_ie || is_nav6up)
+    {
+      document.getElementById("toolTipLayer").innerHTML = content;
+      toolTipSTYLE.display='block'
+    }
+  }
+}
+
+var AW0109 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 2 000 000 BCE Palaeolithic period (Old Stone Age) begins</strong></td></tr><tr><td colspan="2" class="Text">The dawn of the Stone Age was also the dawn of the ancestors of modern humans, the genus <i>Homo</i>. They lived by hunting and gathering and used tools made from stone, wood, bone and antler for hunting, chopping, skinning and grinding.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0109.jpg" border="0"/></td></tr></table>';
+
+var AW0103 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 100 000 BCE: Homo sapiens begin to migrate from Africa</strong></td></tr><tr><td colspan="2" class="Text"><i>Homo sapiens </i>migrated out of Africa across the Red Sea into the Arabian peninsula. Archaeologists have been able to determine this by carefully dating tools and human remains found in this area.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0103.jpg" border="0"/></td></tr></table>';
+
+var AW0101 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 60 000 BCE: Human settlement of Australia begins</strong></td></tr><tr><td colspan="2" class="Text">It is thought that humans first reached Australia by crossing from present day Indonesia, at a time when sea levels were much lower than they are today, making a land-based, or at least mostly land-based, crossing possible. These settlers developed rich and elaborate religious, cultural and legal systems.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0101.jpg" border="0"/></td></tr></table>';
+
+
+var P0101i = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 20 000 BCE: First spear-throwers</strong></td></tr><tr><td colspan="2" class="Text">In Europe, discoveries have been made of spear-throwers made of bone and antler, sometimes featuring carvings of commonly hunted animals such as the mammoth. The spear thrower, which consists of a ball or socket, in which the spear rests, tied to a pole, was able to throw the spear at over 100 km/h.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/P0101i.jpg" border="0"/></td></tr></table>';
+
+
+var P0102n = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 10 000-3500 BCE: Neolithic period (New Stone Age): development of farming and the domestication of animals</strong></td></tr><tr><td colspan="2" class="Text">Wild cereals were first cultivated in the Middle East, which encouraged formerly nomadic populations to become settled in fertile locations, such as the cities of &Ccedil;atalh&ouml;y&uuml;k and Jericho. Gradually, animals also became domesticated, including dogs, sheep, goats, pigs and eventually cattle.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/P0102n.jpg" border="0"/></td></tr></table>';
+
+
+var AW0619 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 8000-4000 BCE: Development of agriculture and silk weaving in China</strong></td></tr><tr><td colspan="2" class="Text">Independently of the development of agriculture in the Middle East, Chinese farmers in the Yellow River basin began to grow rice and millet, closely followed by a variety of legumes. As well as crop domestication, Chinese farmers also cultivated silkworms in order to make silk.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0619.jpg" border="0"/></td></tr></table>';
+
+
+var P0101j = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 6500-4000 BCE: Beginning of agriculture in Europe</strong></td></tr><tr><td colspan="2" class="Text">Gradually, the technologies and knowledge of agriculture began to spread from the Middle East. In Europe, this began in the Greek archipelago where sheep, goats and pigs were cultivated and gradually spread out to the rest of the continent by 4500 BCE.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/P0101j.jpg" border="0"/></td></tr></table>';
+
+
+var P0101k = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 4000-2500 BCE: Farming and villages in western India</strong></td></tr><tr><td colspan="2" class="Text">Geographical shifts left many rivers and water sources in the Indus Valley (mainly modern-day Pakistan), which made fertile soil ideal for settlement by the nomads who had migrated from Africa. The new inhabitants were dependent on the frequent rain and the monsoon season to grow their crops.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/P0101k.jpg" alt="P0101k.jpg" border="0"/></td></tr></table>';
+
+
+var AW0320 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 2700-2200 BCE: Pyramids built in Egypt</strong></td></tr><tr><td colspan="2" class="Text">The pyramids began to be built during Egypt&rsquo;s Third Dynasty. These buildings, designed as elaborate tombs for the Pharaohs, are even today some of the largest buildings ever constructed. Many thousands of workers were required to build the enormous structures.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0320.jpg" border="0"/></td></tr></table>';
+
+
+var P0101l = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 3000-1500 BCE: Stonehenge in Britain and other megaliths in Europe</strong></td></tr><tr><td colspan="2" class="Text">Through the late Stone Age, continuing to the early Bronze Age, communities throughout modern day Britain, France, Spain, Portugal, Denmark and northern Germany created arrangements of enormously heavy stones, named &ldquo;megaliths&rdquo;. The word megalith originally comes from Greek where it means literally &ldquo;big stone&rdquo; (<i>megas </i>&ldquo;big&rdquo; + <i>lithos </i>&ldquo;stone&rdquo;<i>)</i>. Megaliths were often built as an above ground burial site. However, the purpose of some sites, such as the famous Stonehenge, remains unknown.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/P0101l.jpg" border="0"/></td></tr></table>';
+
+
+var AW0704 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 2500-1500 BCE: Indus civilisation in South Asia</strong></td></tr><tr><td colspan="2" class="Text">Spread over modern day Pakistan and north-west India, the Indus Valley civilisation was one of the first urban civilisations. Excavations of the cities at Harappa and Mohenjo-Daro have revealed multistoried houses, drainage systems, a city bath, an as yet undeciphered language, carvings and other artworks. There was trade with Arabic and Persian civilisations. A strongly religious society was established, with powerful priest-kings holding power.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0704.jpg" border="0"/></td></tr></table>';
+
+
+var AW0606 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 2000 BCE: Bronze Age in China</strong></td></tr><tr><td colspan="2" class="Text">The Chinese Bronze Age began in the ancient city of Erlitou. Many bronze statues and casts have been found from this period which are of a quality unmatched by any other bronzes produced at the same time elsewhere in the world.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0606.jpg" alt="AW0606.jpg" border="0"/></td></tr></table>';
+
+
+var AW0415 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 800–700 BCE Rise of Greek city-states</strong></td></tr><tr><td colspan="2" class="Text">The many islands and mountains of Greece meant that the Greek population in the eighth century BCE was divided into many small independent groups, which gradually developed into cities ruling over a large area. Athens, Sparta and Thebes were some of the most powerful city-states. These cities had their own armies and developed many components of modern civilisation including democracy, theatre and vast trading networks.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0415.jpg" border="0"/></td></tr></table>';
+
+var AW0617 = '<table width="300" cellspacing="10" cellpadding="0" border="0"><tr><td colspan="2" class="Text"><strong>c. 166 CE Roman merchants reach China by sea</strong></td></tr><tr><td colspan="2" class="Text">Chinese historical records note that Roman trade envoys sent by the Emperor of Rome were welcomed in a part of China equivalent to modern day Vietnam. Though there was very little <em>direct</em> contact between the Chinese and the Roman Empires, knowledge and ideas, along with goods like silk and glass, had been traded along the Silk Road since at least 100 BCE.</td></tr><tr><td align="center"><hr/><img src="H7TL_0101/AW0617.jpg" alt="AW0617.jpg" border="0"/></td></tr></table>';
+
+
+function show(a){
+        toolTip(a)
+}
+
+ </script>
+</head>
+
+
+<body onload="initToolTips();" class="Text">
+<div id="toolTipLayer" style="position:absolute; visibility: hidden;left:0;right:0"></div>
+<img src="timeline.png" alt="Timeline" border="0" usemap="#timelinemap" />
+
+<map name="timelinemap">
+
+<area shape = "rect" coords = "0,70,288,139" onMouseOver = "show(AW0109)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "0,183,288,252" onMouseOver = "show(AW0101)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "0,355,288,470" onMouseOver = "show(P0102n)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "0,591,288,670" onMouseOver = "show(P0101j)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "0,715,288,790" onMouseOver = "show(AW0320)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "0,863,288,928" onMouseOver = "show(AW0704)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "0,991,288,1061" onMouseOver = "show(AW0415)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,133,600,193" onMouseOver = "show(AW0103)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,283,600,323" onMouseOver = "show(P0101i)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,508,600,601" onMouseOver = "show(AW0619)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,657,600,727" onMouseOver = "show(P0101k)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,777,600,870" onMouseOver = "show(P0101l)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,958,600,1011" onMouseOver = "show(AW0606)" onMouseOut = "toolTip()" alt = "CUP" />
+<area shape = "rect" coords = "300,1052,600,1133" onMouseOver = "show(AW0617)" onMouseOut = "toolTip()" alt = "CUP" />
+
+</map>
+
+
+</body>
+</html>
