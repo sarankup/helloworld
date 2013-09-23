@@ -1,0 +1,30 @@
+div.head{
+	margin:0 0 0 0px;
+	border:1px solid #aaaaaa;
+	width:795px;
+	height:60px;
+	text-align:center;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:15pt;
+	font-weight:bold;
+	color:white;
+	background-image:url('H7TL/header.jpg');
+	background-repeat:no-repeat;
+}
+
+
+.Text{
+        font-family: Verdana, Arial, Sans-serif, 'Times New Roman';
+        font-size: 8pt;
+        font-weight: normal;
+        font-style: normal;
+        color: #333333;
+        text-decoration: none;
+}
+.toolTip {
+        font-family: Verdana, Arial, Sans-serif, 'Times New Roman';
+        font-size: 8pt;
+        filter:alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+}
